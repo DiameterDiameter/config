@@ -1,0 +1,14 @@
+#task for nfs
+- name: installing NFS package
+  yum:
+   name: nfs*
+   state: latest
+  
+- name: wait for system to reboot
+  wait_for_connection: 
+     connect_timeout: 20
+     timeout: 60
+
+   
+- name: Task3 waiting for server to come back after 10.04 to 12.04
+  local_action: wait_for host={{ ansible_ssh_host }} state=started

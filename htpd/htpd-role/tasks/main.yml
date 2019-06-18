@@ -1,0 +1,14 @@
+
+#tasks file for http-role
+  
+- name: prepatch
+  register: out
+  command: "{{ item }}"
+  with_items:
+  - uptime
+  - uname -r
+  - df -h
+ 
+  notify: restarting httpd service 
+  
+  

@@ -1,0 +1,13 @@
+---
+# tasks file for simple
+- name: installing NFS package
+  yum:
+   name: nfs*
+   state: latest
+
+- name: wait for system to reboot
+  reboot:
+     post_reboot_delay: 180 
+ 
+
+ 
